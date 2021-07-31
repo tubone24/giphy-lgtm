@@ -1,7 +1,7 @@
 {
-  "name": "chrome-extension-typescript-starter",
+  "name": "giphy-lgtm",
   "version": "1.0.0",
-  "description": "chrome-extension-typescript-starter",
+  "description": "Get an LGTM image from GIPHY and create a link in Markdown format that you can put in your PR.",
   "main": "index.js",
   "scripts": {
     "watch": "webpack --config webpack/webpack.dev.js --watch",
@@ -14,7 +14,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/chibat/chrome-extension-typescript-starter.git"
+    "url": "https://github.com/tubone24/giphy-lgtm"
   },
   "dependencies": {
     "@material-ui/core": "^4.12.3",

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
 
 const Options = () => {
   const [giphyAPIKey, setGiphyAPIKey] = useState<string>();
@@ -9,12 +9,12 @@ const Options = () => {
   const [status, setStatus] = useState<string>();
 
   const handleSetGiphyAPI = (event: any) => {
-    setGiphyAPIKey(event.target.value)
-  }
+    setGiphyAPIKey(event.target.value);
+  };
 
   const handleSetGiphyQuery = (event: any) => {
-    setGiphyQuery(event.target.value)
-  }
+    setGiphyQuery(event.target.value);
+  };
 
   useEffect(() => {
     chrome.storage.sync.get(
@@ -50,8 +50,18 @@ const Options = () => {
     <>
       <div>
         <form noValidate autoComplete="off">
-          <TextField id="standard-basic" label="Giphy API Key" onChange={handleSetGiphyAPI} value={giphyAPIKey}/>
-          <TextField id="standard-basic" label="Giphy Query keyword" onChange={handleSetGiphyQuery} value={giphyQuery}/>
+          <TextField
+            id="standard-basic"
+            label="Giphy API Key"
+            onChange={handleSetGiphyAPI}
+            value={giphyAPIKey}
+          />
+          <TextField
+            id="standard-basic"
+            label="Giphy Query keyword"
+            onChange={handleSetGiphyQuery}
+            value={giphyQuery}
+          />
         </form>
       </div>
       <div>{status}</div>
