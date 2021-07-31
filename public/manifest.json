@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
 
-  "name": "Chrome Extension TypeScript Starter",
-  "description": "Chrome Extension, TypeScript, Visual Studio Code",
+  "name": "GIPHY LGTM",
+  "description": "Get an LGTM image from GIPHY and create a link in Markdown format that you can put in your PR.",
   "version": "1.0",
 
   "options_ui": {

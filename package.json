@@ -17,7 +17,11 @@
     "url": "https://github.com/chibat/chrome-extension-typescript-starter.git"
   },
   "dependencies": {
+    "@material-ui/core": "^4.12.3",
+    "@material-ui/icons": "^4.11.2",
+    "@material-ui/lab": "^4.0.0-alpha.60",
     "react": "^17.0.1",
+    "react-copy-to-clipboard": "^5.0.3",
     "react-dom": "^17.0.1"
   },
   "devDependencies": {
@@ -25,6 +29,7 @@
     "@types/jest": "^25.1.4",
     "@types/jquery": "^3.3.33",
     "@types/react": "^17.0.0",
+    "@types/react-copy-to-clipboard": "^5.0.1",
     "@types/react-dom": "^17.0.0",
     "copy-webpack-plugin": "^6.1.0",
     "glob": "^7.1.6",

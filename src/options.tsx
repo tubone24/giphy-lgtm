@@ -1,22 +1,30 @@
 import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 
 const Options = () => {
-  const [color, setColor] = useState<string>();
+  const [giphyAPIKey, setGiphyAPIKey] = useState<string>();
+  const [giphyQuery, setGiphyQuery] = useState<string>();
   const [status, setStatus] = useState<string>();
-  const [like, setLike] = useState<boolean>();
+
+  const handleSetGiphyAPI = (event: any) => {
+    setGiphyAPIKey(event.target.value)
+  }
+
+  const handleSetGiphyQuery = (event: any) => {
+    setGiphyQuery(event.target.value)
+  }
 
   useEffect(() => {
-    // Restores select box and checkbox state using the preferences
-    // stored in chrome.storage.
     chrome.storage.sync.get(
       {
-        favoriteColor: "red",
-        likesColor: true,
+        giphyAPIKey: "",
+        giphyQuery: "looks good",
       },
       (items) => {
-        setColor(items.favoriteColor);
-        setLike(items.likesColor);
+        setGiphyAPIKey(items.giphyAPIKey);
+        setGiphyQuery(items.giphyQuery);
       }
     );
   }, []);
@@ -25,11 +33,10 @@ const Options = () => {
     // Saves options to chrome.storage.sync.
     chrome.storage.sync.set(
       {
-        favoriteColor: color,
-        likesColor: like,
+        giphyAPIKey: giphyAPIKey,
+        giphyQuery: giphyQuery,
       },
       () => {
-        // Update status to let user know options were saved.
         setStatus("Options saved.");
         const id = setTimeout(() => {
           setStatus(undefined);
@@ -42,29 +49,13 @@ const Options = () => {
   return (
     <>
       <div>
-        Favorite color:&nbsp;
-        <select
-          value={color}
-          onChange={(event) => setColor(event.target.value)}
-        >
-          <option value="red">red</option>
-          <option value="green">green</option>
-          <option value="blue">blue</option>
-          <option value="yellow">yellow</option>
-        </select>
-      </div>
-      <div>
-        <label>
-          <input
-            type="checkbox"
-            checked={like}
-            onChange={(event) => setLike(event.target.checked)}
-          />
-          I like colors.
-        </label>
+        <form noValidate autoComplete="off">
+          <TextField id="standard-basic" label="Giphy API Key" onChange={handleSetGiphyAPI} value={giphyAPIKey}/>
+          <TextField id="standard-basic" label="Giphy Query keyword" onChange={handleSetGiphyQuery} value={giphyQuery}/>
+        </form>
       </div>
       <div>{status}</div>
-      <button onClick={saveOptions}>Save</button>
+      <Button onClick={saveOptions}>Save</Button>
     </>
   );
 };
