@@ -29,7 +29,7 @@ jobs:
     - name: Test
       run: npm test
     - name: Build
-    - run: npm run build --if-present
+      run: npm run build --if-present
     - name: Pack dist
       run: zip -r dist.zip dist
     - name: get version
