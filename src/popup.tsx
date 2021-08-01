@@ -123,7 +123,7 @@ const Popup = () => {
               subtitle={<span>by: {item.username}</span>}
               actionIcon={
                 <CopyToClipBoard
-                  text={createMarkdownLink(item.title, item.originalUrl)}
+                  text={createMarkdownLink(query, item.originalUrl)}
                 >
                   <IconButton
                     aria-label={`info about ${item.title}`}
